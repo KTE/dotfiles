@@ -52,3 +52,7 @@ brew install mosh
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+# Cabal Stuff
+cabal update
+cabal install pandoc
