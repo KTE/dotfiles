@@ -44,5 +44,11 @@ brew install rhino
 brew install tree
 brew install webkit2png
 
+# personal stuff
+brew install imagemagick 
+brew install haskell-platform
+brew install ssh-copy-id
+brew install mosh
+
 # Remove outdated versions from the cellar
 brew cleanup
