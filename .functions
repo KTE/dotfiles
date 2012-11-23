@@ -144,3 +144,21 @@ function unquarantine() {
 		xattr -r -d "$attribute" "$@"
 	done
 }
+
+function pushme() {
+	local text
+	if [ -t 0 ]; then
+		text="$1" # argument
+	else
+		text=$(cat) # pipe
+	fi
+    
+    SERVICES="say notifo boxcar"
+    for SERVICE in $SERVICES
+    do {
+        if [ $(type -t "$SERVICE") ]
+            then ( echo "$text" | "$SERVICE" & >/dev/null )
+        fi
+    } 
+    done
+}
