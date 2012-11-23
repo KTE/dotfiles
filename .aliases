@@ -124,3 +124,8 @@ done
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
 alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+# WTF: put after any command and when it tell you when it finishes, 
+# outputs "DONE" or "FAIL" depending on exit code, via `echo` and (if available) `pushme`
+# usage: ./longtime.sh ; wtf
+alias wtf='S="$?" ; [[ $S = 0 ]] && OUT="DONE" || OUT="FAIL $S" ; ( echo "$OUT" ; [ $(type -t pushme) ] && pushme "$OUT"; exit $S )'
