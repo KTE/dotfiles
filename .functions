@@ -163,3 +163,10 @@ function pushme() {
     } 
     done
 }
+
+# Inform the user that SHELL !== JS   8)
+function var () {
+  echo "This is POSIX! No javascript allowed!"
+  echo "I will drop you into node.js…"
+  exec node
+}
