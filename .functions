@@ -166,6 +166,11 @@ function pushme() {
 
 # KTE stuff
 
+# ssh without keycheck
+function psh() {
+  ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking no' "$@"
+}
+
 # WTF: put after any command and when it tell you when it finishes, 
 # outputs "DONE" or "FAIL" depending on exit code via `echo`
 # usage: ./longtime.sh ; wtf
