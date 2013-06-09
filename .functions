@@ -164,6 +164,19 @@ function pushme() {
     done
 }
 
+# KTE stuff
+
+# WTF: put after any command and when it tell you when it finishes, 
+# outputs "DONE" or "FAIL" depending on exit code via `echo`
+# usage: ./longtime.sh ; wtf
+function wtf() {
+  S="$?" # save staus code
+  # make message
+  [[ $S = 0 ]] && OUT="DONE" || OUT="FAIL $S"
+  echo "$OUT" # echo message 
+  exit $S     # exit with same status code (chainable)
+}
+
 # Inform the user that SHELL !== JS   8)
 function var () {
   echo "This is POSIX! No javascript allowed!"
