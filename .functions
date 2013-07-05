@@ -166,8 +166,8 @@ function pushme() {
 
 # KTE stuff
 
-# ssh without keycheck
-function psh() {
+# ssh without keycheck. use with p!! after you've tried 'ssh foo'.
+function pssh() {
   ssh -q -o 'UserKnownHostsFile /dev/null' -o 'StrictHostKeyChecking no' "$@"
 }
 
