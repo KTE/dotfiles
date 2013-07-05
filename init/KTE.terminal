@@ -5,7 +5,7 @@
 	<key>BackgroundAlphaInactive</key>
 	<real>0.77945223721590906</real>
 	<key>BackgroundBlur</key>
-	<real>0.25308719758064518</real>
+	<real>0.0</real>
 	<key>BackgroundBlurInactive</key>
 	<real>0.31986860795454547</real>
 	<key>BackgroundColor</key>
@@ -38,7 +38,7 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
-	YXNzI0AuAAAAAAAAEBCAAoADXxAVU291cmNlQ29kZVByby1SZWd1bGFy0hMUFRZaJGNs
+	YXNzI0AsAAAAAAAAEBCAAoADXxAVU291cmNlQ29kZVByby1SZWd1bGFy0hMUFRZaJGNs
 	YXNzbmFtZVgkY2xhc3Nlc1ZOU0ZvbnSiFRdYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2
 	ZXLRGhtUcm9vdIABCBEaIy0yNzxCS1JbYmlydHZ4kJWgqbCzvM7R1gAAAAAAAAEBAAAA
 	AAAAABwAAAAAAAAAAAAAAAAAAADY
@@ -89,6 +89,8 @@
 	<true/>
 	<key>VisualBell</key>
 	<true/>
+	<key>WindowTitle</key>
+	<string>Terminal</string>
 	<key>blackColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -157,7 +159,7 @@
 	ZmZmAYPn5uY+g/79fT8Bhg==
 	</data>
 	<key>name</key>
-	<string>Visor</string>
+	<string>KTE</string>
 	<key>noWarnProcesses</key>
 	<array>
 		<dict>
@@ -195,7 +197,7 @@
 	ZmZmAYPZ2Ng+g8HAwD4Bhg==
 	</data>
 	<key>rowCount</key>
-	<integer>24</integer>
+	<integer>20</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>
