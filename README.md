@@ -1,4 +1,4 @@
-# KT8’s dotfiles
+# KTE’s dotfiles
 
 ## Installation
 
