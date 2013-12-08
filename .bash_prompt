@@ -70,6 +70,7 @@ function prompt_git() {
     
     # abort when git-annex is used
     if [[ -d ".git/annex" ]]; then
+      echo ' [~git-annex~]'
       return 1
     fi
  
