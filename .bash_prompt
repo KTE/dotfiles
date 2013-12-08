@@ -67,6 +67,11 @@ function prompt_git() {
     if ! is_git_repo; then
         return 1
     fi
+    
+    # abort when git-annex is used
+    if [[ -d ".git/annex" ]]; then
+      return 1
+    fi
  
     git_info=$(get_git_branch)
  
