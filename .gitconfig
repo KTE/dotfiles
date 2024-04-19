@@ -21,16 +21,36 @@
 	remotes = remote -v
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
-	# Undo a `git push`
+
+  WIP = "!f() { git add -A && git commit --no-verify -m \"[WIP] $(git branch --show-current)\"; }; f"
+  WIPP = !git wip && git push
+  UNWIP = "!f() { git log -n1 --format="%s" | grep -qe 'WIP' && git reset --keep --mixed HEAD^1 || echo 'FATAL: not on a WIP commit!'; }; f"
+
+  amend = commit --amend
+  # Interactive rebase with the given number of latest commits
+	reb = "!r() { git rebase -i --autostash --autosquash HEAD~$1; }; r"
+  rbc = rebase --continue
+  rba = rebase --abort
+  
+  pick = "cherry-pick"
+  pfush = "push -f"
+  
+  # Undo a `git push`
 	undopush = push -f origin HEAD^:master
+	surfi = !git submodule update --recursive --force --init
+	# push&pull
+	sync = !git pull && git push && git surfi
+	well-actually = "!f() { git add -u . && git commit --amend --no-edit && git push -f; }; f"
+	remote-default-branch = "!f() { git remote show origin | grep 'HEAD branch' | cut -d':' -f2 | cut -d' ' -f2; }; f"
+	deliver = "!f() { git push origin \"$1:$(git remote-default-branch)\"; }; f"
+  conflicts = "diff --name-only --diff-filter=U"
 
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = warn
 
 [core]
+	editor = code --wait
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
@@ -78,3 +98,19 @@
 
 [push]
 	#default = simple
+
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
+
+[push]
+	default = current
+[advice]
+	detachedHead = false
+[branch]
+	sort = -committerdate
+[pull]
+	ff = only
+
+#[includeIf "gitdir:~/some_namespace/"]
+#  path = ~/some_namespace/.gitconfig
