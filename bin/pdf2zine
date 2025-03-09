@@ -1,9 +1,10 @@
 #!/bin/bash
 set -eu
 
-# input file is a PDF where the backside is the last page 
-# (created in InDesign by having a cover spread as the first 2 pages
-# this script moves the cover around and then reorders the pages for booklet print (short side)
+if ! which qpdf > /dev/null; then
+    echo "Error: qpdf is not installed, installing with homebrew"
+    brew install qpdf
+fi
 
 # Check if input file exists
 if [ ! -f "$1" ]; then
@@ -35,4 +36,3 @@ mv "booklet.pdf" "${OUTPUT_FILE}"
 echo "Done! Booklet created at: ${OUTPUT_FILE}"
 
 rm -rf "$TMPDIR"
-
